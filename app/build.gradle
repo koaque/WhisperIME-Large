@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'kotlinx-serialization'
 }
 
 android {
@@ -13,16 +15,21 @@ android {
     
     defaultConfig {
         applicationId "org.woheller69.whisper"
-        minSdk 28
+        minSdk 24
         targetSdk 34
-        versionCode 31
-        versionName "3.1"
+        versionCode 110
+        versionName "1.1.0"
 
     }
 
     buildFeatures {
         buildConfig = true
         viewBinding = true
+        compose = true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = '1.5.8'
     }
 
     buildTypes {
@@ -56,16 +63,45 @@ android {
 }
 
 dependencies {
-    implementation 'androidx.appcompat:appcompat:1.7.0'
-    implementation 'com.google.android.material:material:1.12.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.2.0'
-    implementation 'androidx.preference:preference:1.2.1'
+    // Module dependencies
+    implementation project(':core')
+    implementation project(':native')
 
-    // Main TensorFlow Lite library
+    // Compose BOM - manages all Compose library versions
+    implementation platform('androidx.compose:compose-bom:2024.02.00')
+    
+    // Core Android & Compose
+    implementation 'androidx.core:core-ktx:1.12.0'
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.7.0'
+    implementation 'androidx.activity:activity-compose:1.8.2'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0'
+    
+    // Compose UI
+    implementation 'androidx.compose.ui:ui'
+    implementation 'androidx.compose.ui:ui-graphics'
+    implementation 'androidx.compose.ui:ui-tooling-preview'
+    debugImplementation 'androidx.compose.ui:ui-tooling'
+    debugImplementation 'androidx.compose.ui:ui-test-manifest'
+    
+    // Material Design 3
+    implementation 'androidx.compose.material3:material3'
+    implementation 'androidx.compose.material:material-icons-extended'
+    
+    // Navigation
+    implementation 'androidx.navigation:navigation-compose:2.7.6'
+    
+    // Legacy Android Views (for IME)
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.11.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    
+    // Permissions
+    implementation 'com.google.accompanist:accompanist-permissions:0.32.0'
+    
+    // Main TensorFlow Lite library (keep existing for backward compatibility)
     //noinspection GradleDependency: Crash with 2.16.1, nonsense output with com.google.ai.edge.litert:litert:1.0.1
     implementation 'org.tensorflow:tensorflow-lite:2.15.0'
     implementation 'org.tensorflow:tensorflow-lite-support:0.4.4'
-    implementation 'com.github.gkonovalov.android-vad:webrtc:2.0.9'
     implementation 'com.github.houbb:opencc4j:1.8.1'
 
 }

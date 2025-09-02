@@ -1,53 +1,5 @@
 ## Donate
-<pre>Send a coffee to 
-woheller69@t-online.de 
-<a href= "https://www.paypal.com/signin"><img  align="left" src="https://www.paypalobjects.com/webstatic/de_DE/i/de-pp-logo-150px.png"></a>
-
-  
-Or via this link (with fees)
-<a href="https://www.paypal.com/donate?hosted_button_id=XVXQ54LBLZ4AA"><img  align="left" src="https://img.shields.io/badge/Donate%20with%20Debit%20or%20Credit%20Card-002991?style=plastic"></a></pre>
-# Voice recognition based on Whisper
-
-<img src="fastlane/metadata/android/en-US/images/phoneScreenshots/01.png" width="150"/> <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/02.png" width="150"/>
-
-Whisper is an input method editor (IME) that leverages voice recognition technology based on the Whisper engine. 
-It offers a seamless user experience, functioning both as a standalone application and an integrated IME that can be activated, e.g. via the microphone button in HeliBoard.
-As a standalone app Whisper can also translate any supported language to English.
-
-Besides providing an IME, whisper can also be selected as system-wide voice input (RecognitionService) and it supports calls via intent (RecognizerIntent.ACTION_RECOGNIZE_SPEECH).
-
-## Initial Setup
-
-Upon launching Whisper for the first time, the app will download the necessary Whisper models (~435 MB) from Hugging Face. 
-Please note that this is the only instance where internet permission is required. 
-Once the models are downloaded, voice recognition works entirely offline, ensuring your privacy and convenience.
-
-Please note that for use as voice input (not as IME) there is a separate settings activity which can be accessed from Android settings 
-(System > Languages > Speech > Voice Input). There you can activate the app as voice input and then click the settings button.
-In settings you can then select the model for voice input and the maximum recording time (default: 30s).
-
-## Model Selection
-
-Whisper offers two models to choose from: a compact English-only model that prioritizes speed and a more comprehensive multi-lingual model that, while much slower, 
-supports a broader range of languages. Select your preferred model within the app, and it will be applied consistently across all uses, including when used as an IME.
-
-## Using Whisper
-
-To get the most out of Whisper, follow these simple tips:
-
-- Press and hold the button while speaking or use automatic mode where available
-- Pause briefly before starting to speak
-- Speak clearly, loudly, and at a moderate pace
-- Please note that there is a limit of 30s for each recording
-
-By following these guidelines, you'll be able to enjoy accurate and efficient voice recognition with Whisper.
-
-[<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png" height="75">](https://f-droid.org/de/packages/org.woheller69.whisper/) [<img src="https://www.openapk.net/images/openapk-badge.png" height="75">]( https://www.openapk.net/whisper/org.woheller69.whisper/)
-
-
-## Contribute
-
-For translations use https://toolate.othing.xyz/projects/whisperime/
+Modification to woheller69's project, only change is it gets a larger model. I might change the interface around.
 
 # License
 This work is licensed under MIT license, © woheller69

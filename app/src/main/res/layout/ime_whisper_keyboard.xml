@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/colorSurface">
+
+    <!-- Main keyboard container -->
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="4dp"
+        app:strokeWidth="0dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="12dp">
+
+            <!-- Transcript preview -->
+            <TextView
+                android:id="@+id/tv_transcript_preview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:minHeight="24dp"
+                android:textColor="?attr/colorOnSurfaceVariant"
+                android:textSize="14sp"
+                android:visibility="gone" />
+
+            <!-- Main control bar -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <!-- Language selection button -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_language"
+                    style="@style/Widget.Material3.Button.TextButton.Icon"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:text="EN"
+                    android:textSize="12sp"
+                    app:icon="@drawable/ic_language"
+                    app:iconGravity="start"
+                    app:iconSize="16dp" />
+
+                <!-- Microphone button -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_microphone"
+                    style="@style/Widget.Material3.Button.UnelevatedButton"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:layout_marginHorizontal="16dp"
+                    android:text="🎤"
+                    android:textSize="24sp"
+                    app:cornerRadius="28dp"
+                    app:strokeWidth="0dp" />
+
+                <!-- Up arrow button (buffer paste) -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_up_arrow"
+                    style="@style/Widget.Material3.Button.TextButton.Icon"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:text="Paste"
+                    android:textSize="12sp"
+                    app:icon="@drawable/ic_arrow_upward"
+                    app:iconGravity="start"
+                    app:iconSize="16dp" />
+
+            </LinearLayout>
+
+            <!-- VU Meter -->
+            <com.whispertflite.ui.components.VUMeterView
+                android:id="@+id/vu_meter"
+                android:layout_width="match_parent"
+                android:layout_height="8dp"
+                android:layout_marginTop="8dp"
+                android:visibility="invisible" />
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Buffer overlay (for buffered mode) -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/buffer_overlay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:layout_margin="8dp"
+        android:visibility="gone"
+        app:cardBackgroundColor="?attr/colorSurfaceVariant"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="2dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="12dp">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginEnd="8dp"
+                android:src="@drawable/ic_queue"
+                android:tint="?attr/colorOnSurfaceVariant" />
+
+            <TextView
+                android:id="@+id/tv_buffer_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:textColor="?attr/colorOnSurfaceVariant"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</FrameLayout>

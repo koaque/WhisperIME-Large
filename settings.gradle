@@ -15,5 +15,3 @@ dependencyResolutionManagement {
 }
 rootProject.name = "WhisperIME"
 include ':app'
-include ':core'
-include ':native'
